@@ -10,6 +10,15 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
+
+section "Recently updated content" do
+  table_for Version.order('id desc').limit(20) do
+    column "Item" do |v| v.item end
+    column "Type" do |v| v.item_type.underscore.humanize end
+    column "Modified at" do |v| v.created_at.to_s :long end
+    #column "Admin" do |v| link_to AdminUser.find(v.whodunnit).email, admin_admin_user_path(AdminUser.find(v.whodunnit)) end
+  end
+end
     # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do
