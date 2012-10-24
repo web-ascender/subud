@@ -36,21 +36,21 @@
 #  i_am_the_contact_helper_for_information_in_this_center :boolean          default(FALSE)
 #  committee_role_id                                      :integer
 #  committee_level_id                                     :integer
-#  receive_electronic_newsletter                          :boolean
-#  receive_hardcopy_newsletter                            :boolean
-#  receive_news_from_nat_office                           :boolean
-#  participate_in_my_regional_listserv                    :boolean
 #  enterprise_name                                        :string(255)
 #  business                                               :boolean          default(FALSE)
 #  ses_professional_classification_id                     :integer
 #  sica_professional_classification_id                    :integer
-#  race_ethnicity_id                                      :integer
 #  spouse_name                                            :string(255)
 #  spouse_opened                                          :boolean          default(FALSE)
 #  center_opened_at_id                                    :integer
 #  helper_witness                                         :string(255)
 #  discover_info_id                                       :integer
 #  national_helper_id                                     :integer
+#  help_level_id                                          :integer
+#  mobile_phone                                           :string(255)
+#  no_center                                              :boolean
+#  show_me_in_web_directory                               :boolean
+#  show_me_in_print_directory                             :boolean
 #
 
 class Contact < ActiveRecord::Base
@@ -70,9 +70,21 @@ class Contact < ActiveRecord::Base
   belongs_to :ses_professional_classification
   belongs_to :sica_professional_classification
   belongs_to :center_opened_at, :class_name => "Center"
-  
+  belongs_to :help_level
+  has_and_belongs_to_many :communication_services
+  has_and_belongs_to_many :race_ethnicities
+  validate :center_validation
   has_paper_trail
 
+  def center_validation
+    if self.center && self.center.name.include?("--")
+      errors.add(:center, "Sorry you cannot select that Center")
+    end
+    if self.center_opened_at && self.center_opened_at.name.include?("--")
+      errors.add(:center, "Sorry you cannot select that Center")
+    end
+
+  end
   def name
     self.last_name + ", " + self.first_name
   end

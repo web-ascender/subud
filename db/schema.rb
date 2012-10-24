@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121006182951) do
+ActiveRecord::Schema.define(:version => 20121024001922) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20121006182951) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "position"
   end
 
   create_table "committee_levels", :force => true do |t|
@@ -63,6 +64,17 @@ ActiveRecord::Schema.define(:version => 20121006182951) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "communication_services", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "communication_services_contacts", :force => true do |t|
+    t.integer "communication_service_id"
+    t.integer "contact_id"
   end
 
   create_table "contacts", :force => true do |t|
@@ -99,24 +111,35 @@ ActiveRecord::Schema.define(:version => 20121006182951) do
     t.boolean  "i_am_the_contact_helper_for_information_in_this_center", :default => false
     t.integer  "committee_role_id"
     t.integer  "committee_level_id"
-    t.boolean  "receive_electronic_newsletter"
-    t.boolean  "receive_hardcopy_newsletter"
-    t.boolean  "receive_news_from_nat_office"
-    t.boolean  "participate_in_my_regional_listserv"
     t.string   "enterprise_name"
     t.boolean  "business",                                               :default => false
     t.integer  "ses_professional_classification_id"
     t.integer  "sica_professional_classification_id"
-    t.integer  "race_ethnicity_id"
     t.string   "spouse_name"
     t.boolean  "spouse_opened",                                          :default => false
     t.integer  "center_opened_at_id"
     t.string   "helper_witness"
     t.integer  "discover_info_id"
     t.integer  "national_helper_id"
+    t.integer  "help_level_id"
+    t.string   "mobile_phone"
+    t.boolean  "no_center"
+    t.boolean  "show_me_in_web_directory"
+    t.boolean  "show_me_in_print_directory"
+  end
+
+  create_table "contacts_race_ethnicities", :force => true do |t|
+    t.integer "contact_id"
+    t.integer "race_ethnicity_id"
   end
 
   create_table "discover_infos", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "help_levels", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: race_ethnicities
+# Table name: communication_services
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -8,8 +8,10 @@
 #  updated_at :datetime         not null
 #
 
-class RaceEthnicity < ActiveRecord::Base
-  # attr_accessible :title, :body
-    attr_accessible :name
-    has_and_belongs_to_many :contacts
+require 'test_helper'
+
+class CommunicationServiceTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end
