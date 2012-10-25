@@ -25,7 +25,7 @@ ActiveAdmin.register Contact, {:sort_order => "last_name"} do
         f.input :sex, :label => "Gender", :as => "radio"
         f.input :race_ethnicities, :as => :check_boxes        
         f.input :martial_status
-        f.input :help_status
+        #f.input :help_status
         f.input :opening_date
 
         f.input :spouse_name
