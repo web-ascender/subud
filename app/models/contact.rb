@@ -86,7 +86,11 @@ class Contact < ActiveRecord::Base
 
   end
   def name
-    self.last_name + ", " + self.first_name
+    if self.last_name && self.first_name
+      self.last_name + ", " + self.first_name
+    else
+      ""
+    end
   end
   def to_s
     name

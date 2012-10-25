@@ -9,6 +9,7 @@ ActiveAdmin.register Contact, {:sort_order => "last_name"} do
         f.input :work_phone
         f.input :fax_number
         f.input :skype
+        f.input :twitter
         f.input :facebook_url
         f.input :website_url
       end
@@ -51,7 +52,6 @@ ActiveAdmin.register Contact, {:sort_order => "last_name"} do
         f.input :ses_professional_classification, :label => "SES Professional Classification"
         f.input :sica_professional_classification, :label => "SICA Professional Classification"
         f.input :discover_info
-        f.input :national_helper
         f.input :communication_services, :as => :check_boxes
         f.input :committee_role
         f.input :committee_level
@@ -64,6 +64,7 @@ ActiveAdmin.register Contact, {:sort_order => "last_name"} do
 
       f.inputs "Administration" do
         f.input :member_status
+        f.input :national_helper
       end
 
       f.buttons
