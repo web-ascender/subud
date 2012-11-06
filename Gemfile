@@ -13,6 +13,9 @@ gem 'taps'
 gem  'us_states_select'
 gem 'thin'
 gem 'haml'
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+gem 'therubyracer'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -27,6 +30,7 @@ end
 
 group :development do
   gem 'annotate'
+
 end
 
 gem 'jquery-rails'
@@ -44,4 +48,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'

@@ -22,10 +22,20 @@ class AdminUser < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
+  has_many :contacts
+  before_save :set_user
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :dnn_username, :dnn_id
   # attr_accessible :title, :body
+
+  def super_user?
+    self.superuser
+  end
+
+  def set_user
+    self.admin_user_id = self.admin_user_id || current_admin_user.id
+  end
 end

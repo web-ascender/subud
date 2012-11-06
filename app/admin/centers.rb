@@ -1,3 +1,3 @@
 ActiveAdmin.register Center do
-  menu :parent => "Settings"  
+  menu :parent => "Settings" ,:if => proc{ current_admin_user.super_user? }
 end

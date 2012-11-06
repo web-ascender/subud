@@ -1,0 +1,44 @@
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th
+        Name
+      %th
+        Address
+      %th
+        Contact
+      %th
+
+  %tbody
+    - @contacts.each do |contact|
+      %tr
+        %td
+          = link_to  contact.name, "#" if contact.name
+        %td        
+          = contact.address if contact.address
+          = contact.city if contact.city
+          = contact.state if contact.state
+          = contact.zip  if contact.zip
+        %td
+          - if contact.email
+            Email:
+            = contact.email
+            %br
+          - if contact.twitter
+            Twitter:
+            = contact.twitter
+            %br
+          - if contact.skype
+            Skype:
+            = contact.skype
+            %br
+          - if contact.facebook_url
+            Facebook:
+            = contact.facebook_url
+            %br
+          - if contact.website_url
+            = contact.website_url
+            %br
+
+= paginate @contacts

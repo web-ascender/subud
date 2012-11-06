@@ -58,13 +58,15 @@ ActiveAdmin.register Contact, {:sort_order => "last_name"} do
 
       end
       f.inputs "Display Options" do        
-        f.input :show_me_in_web_directory
-        f.input :show_me_in_print_directory
+        f.input :show_me_in_web_directory, :label => "Show my information in the online directory (name, address, phone, email, affiliate links)"
+
+        f.input :show_me_in_print_directory, :label => "Show my information in the annual print directory (name, address, phone, email, affiliate links)"
       end  
 
       f.inputs "Administration" do
         f.input :member_status
         f.input :national_helper
+        
       end
 
       f.buttons
@@ -81,7 +83,7 @@ index do
   column "Zip", :zip
   column "Status", :member_status
 
-  default_actions
+  default_actions if current_admin_user.super_user? 
 end
 
 controller do

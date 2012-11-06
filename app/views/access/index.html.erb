@@ -1,0 +1,7 @@
+<form accept-charset="UTF-8" action="/admin/login" class="formtastic admin_user" id="session_new" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="3aE+28Csm1TuAOJus4UNnFzGjdJiMK0J5zQLBrbw/Ko="></div><fieldset class="inputs"><ol><li class="email input required autofocus stringish" id="admin_user_email_input"><label class=" label" for="admin_user_email">Email<abbr title="required">*</abbr></label><input autofocus="autofocus" id="admin_user_email" maxlength="255" name="admin_user[email]" type="email" value="<%=@email%>">
+
+</li><li class="password input required stringish" id="admin_user_password_input"><label class=" label" for="admin_user_password">Password<abbr title="required">*</abbr></label><input id="admin_user_password" maxlength="128" name="admin_user[password]" type="password" value="<%= @password%>">
+
+</li><li class="boolean input optional" id="admin_user_remember_me_input"><input name="admin_user[remember_me]" type="hidden" value="0"><label class="" for="admin_user_remember_me"><input id="admin_user_remember_me" name="admin_user[remember_me]" type="checkbox" value="1">Remember me</label>
+
+</li></ol></fieldset><fieldset class="actions"><ol><li class="action input_action " id="admin_user_submit_action"><input name="commit" type="submit" value="Login"></li></ol></fieldset></form>

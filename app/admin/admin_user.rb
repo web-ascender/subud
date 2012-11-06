@@ -1,5 +1,5 @@
 ActiveAdmin.register AdminUser do     
-  menu :parent => "Settings"
+  menu :parent => "Settings", :if => proc{ current_admin_user.super_user? }
   index do                            
     column :email                     
     column :current_sign_in_at        
