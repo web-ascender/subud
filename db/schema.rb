@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106024116) do
+ActiveRecord::Schema.define(:version => 20121128234431) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -121,7 +121,6 @@ ActiveRecord::Schema.define(:version => 20121106024116) do
     t.boolean  "spouse_opened",                                          :default => false
     t.integer  "center_opened_at_id"
     t.string   "helper_witness"
-    t.integer  "discover_info_id"
     t.integer  "national_helper_id"
     t.integer  "help_level_id"
     t.string   "mobile_phone"
@@ -129,6 +128,11 @@ ActiveRecord::Schema.define(:version => 20121106024116) do
     t.boolean  "show_me_in_web_directory"
     t.boolean  "show_me_in_print_directory"
     t.integer  "admin_user_id"
+  end
+
+  create_table "contacts_discover_infos", :force => true do |t|
+    t.integer "contact_id"
+    t.integer "discover_info_id"
   end
 
   create_table "contacts_race_ethnicities", :force => true do |t|

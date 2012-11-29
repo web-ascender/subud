@@ -51,7 +51,7 @@ ActiveAdmin.register Contact, {:sort_order => "last_name"} do
         f.input :business
         f.input :ses_professional_classification, :label => "SES Professional Classification"
         f.input :sica_professional_classification, :label => "SICA Professional Classification"
-        f.input :discover_info
+        f.input :discover_infos, :as => :check_boxes
         f.input :communication_services, :as => :check_boxes
         f.input :committee_role
         f.input :committee_level

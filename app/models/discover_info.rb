@@ -10,6 +10,6 @@
 
 class DiscoverInfo < ActiveRecord::Base
   # attr_accessible :title, :body
-    attr_accessible :name
-  has_many :contacts
+  attr_accessible :name
+  has_and_belongs_to_many :contacts
 end

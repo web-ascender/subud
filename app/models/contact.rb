@@ -74,6 +74,7 @@ class Contact < ActiveRecord::Base
   belongs_to :admin_user
   has_and_belongs_to_many :communication_services
   has_and_belongs_to_many :race_ethnicities
+  has_and_belongs_to_many :discover_infos
   validate :center_validation
   has_paper_trail
 

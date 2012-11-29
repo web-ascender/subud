@@ -36,6 +36,6 @@ class AdminUser < ActiveRecord::Base
   end
 
   def set_user
-    self.admin_user_id = self.admin_user_id || current_admin_user.id
+    #self.admin_user_id = self.admin_user_id || current_admin_user.id
   end
 end
