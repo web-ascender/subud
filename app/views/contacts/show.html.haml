@@ -1,0 +1,144 @@
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th
+        %h3
+          = @contact.name
+  %tbody
+    %tr
+      %td.small_column
+        Email
+      %td
+        = @contact.email
+    %tr
+      %td.small_column
+        Home Phone
+      %td
+        = @contact.home_phone
+    %tr
+      %td.small_column
+        Work Phone
+      %td
+        = @contact.work_phone
+    %tr
+      %td.small_column
+        Fax Number
+      %td
+        = @contact.fax_number
+    %tr
+      %td.small_column
+        Address
+      %td
+        = @contact.address
+        = @contact.suite
+        %br
+        = @contact.city
+        = @contact.state
+        %br
+        = @contact.zip
+    %tr
+      %td.small_column
+        Skype
+      %td
+        = @contact.skype
+    %tr
+      %td.small_column
+        Twitter
+      %td
+        = @contact.twitter
+    %tr
+      %td.small_column
+        Facebook
+      %td
+        = @contact.facebook_url
+    %tr
+      %td.small_column
+        Website
+      %td
+        = @contact.website_url  
+
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th
+        %h3
+          About
+  %tbody
+    %tr
+      %td.small_column
+        Birth Date
+      %td
+        = @contact.birth_date   
+    %tr
+      %td.small_column
+        Gender
+      %td
+        = @contact.sex
+    %tr
+      %td.small_column
+        Race/Ethnicities
+      %td
+        = @contact.race_ethnicities.join(', ')
+    %tr
+      %td.small_column
+        Martial Status
+      %td
+        = @contact.martial_status
+    %tr
+      %td.small_column
+        Opening Date
+      %td
+        = @contact.opening_date   
+    %tr
+      %td.small_column
+        Helper Witness
+      %td
+        = @contact.helper_witness
+    %tr
+      %td.small_column
+        Spouse Name
+      %td
+        = @contact.spouse_name
+    %tr
+      %td.small_column
+        Spouse Opened?
+      %td
+        = @contact.spouse_opened == true ? "Yes" : "No"
+        %br
+        = @contact.center_opened_at
+           
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th{:colspan => "2"}
+        %h3
+          Center Information
+  %tbody
+    %tr
+      %td.small_column
+        Region
+      %td
+        = @contact.region   
+    %tr
+      %td.small_column
+        Center
+      %td
+        = @contact.center 
+        = @contact.no_center == true ? "I do not belong to a center" : ""
+    %tr
+      %td.small_column
+        Updated
+      %td
+        = @contact.date_of_info
+    %tr
+      %td.small_column
+        Help Type
+      %td
+        = @contact.help_statustype
+    %tr
+      %td.small_column
+        Help Level
+      %td
+        = @contact.help_level                        
+

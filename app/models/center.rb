@@ -14,4 +14,8 @@ class Center < ActiveRecord::Base
     attr_accessible :name, :position
     has_many :contacts
     default_scope order('position ASC')
+  def to_s
+    name
+  end
+    
 end

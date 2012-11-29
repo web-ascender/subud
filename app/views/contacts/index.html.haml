@@ -5,39 +5,42 @@
       %th
         Name
       %th
-        Address
+        Region
+      %th
+        Center
+      %th
+        State
       %th
         Contact
-      %th
 
   %tbody
     - @contacts.each do |contact|
       %tr
         %td
-          = link_to  contact.name, "#" if contact.name
+          = link_to  contact.name, contact if contact.name
+        %td
+          = contact.region
+        %td
+          = contact.center
         %td        
-          = contact.address if contact.address
-          = contact.city if contact.city
           = contact.state if contact.state
-          = contact.zip  if contact.zip
         %td
           - if contact.email
-            Email:
-            = contact.email
+            = raw(obscure_email(contact.email))
             %br
-          - if contact.twitter
+          - if contact.twitter && contact.twitter.length > 0
             Twitter:
             = contact.twitter
             %br
-          - if contact.skype
+          - if contact.skype && contact.skype.length > 0
             Skype:
             = contact.skype
             %br
-          - if contact.facebook_url
+          - if contact.facebook_url && contact.facebook_url.length > 0
             Facebook:
             = contact.facebook_url
             %br
-          - if contact.website_url
+          - if contact.website_url && contact.website_url.length > 0
             = contact.website_url
             %br
 
