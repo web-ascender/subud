@@ -55,6 +55,7 @@ ActiveAdmin.register Contact, {:sort_order => "last_name"} do
         f.input :communication_services, :as => :check_boxes
         f.input :committee_role
         f.input :committee_level
+        f.input :delegate, :label => "Delegate"
 
       end
       f.inputs "Display Options" do        

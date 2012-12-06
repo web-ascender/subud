@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128234431) do
+ActiveRecord::Schema.define(:version => 20121206192509) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20121128234431) do
     t.boolean  "show_me_in_web_directory"
     t.boolean  "show_me_in_print_directory"
     t.integer  "admin_user_id"
+    t.boolean  "delegate",                                               :default => false
   end
 
   create_table "contacts_discover_infos", :force => true do |t|
