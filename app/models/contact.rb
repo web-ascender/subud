@@ -72,6 +72,8 @@ class Contact < ActiveRecord::Base
   belongs_to :center_opened_at, :class_name => "Center"
   belongs_to :help_level
   belongs_to :admin_user
+  belongs_to :user
+
   has_and_belongs_to_many :communication_services
   has_and_belongs_to_many :race_ethnicities
   has_and_belongs_to_many :discover_infos

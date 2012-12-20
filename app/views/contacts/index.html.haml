@@ -1,7 +1,18 @@
+- unless Rails.env.production?
+  = params[:user_username] if params[:user_username].present?
+  = params[:user_email] if params[:user_email].present?
+  = params[:user_id] if params[:user_id].present?
+/http://localhost:3000/contacts?user_id=999&user_username=dawn_abbey&user_email=dawnlaksir@cox.net
 
-%table.table.table-bordered.table-striped
+        
+#title_bar
+  .action_items
+    %span.action_item
+      = link_to " Add Your Membership Listing", new_contact_path
+%table.index_table.index
   %thead
     %tr
+      %th
       %th
         Name
       %th
@@ -16,6 +27,9 @@
   %tbody
     - @contacts.each do |contact|
       %tr
+        %td
+          = link_to "Edit","#" if current_user && current_user.can_edit_contact(contact)
+          
         %td
           = link_to  contact.name, contact if contact.name
         %td
@@ -45,3 +59,7 @@
             %br
 
 = paginate @contacts
+%br
+%br
+%br
+%br
