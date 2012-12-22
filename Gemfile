@@ -18,6 +18,7 @@ gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'therubyracer'
 gem 'exception_notification', git: 'git://github.com/alanjds/exception_notification.git'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

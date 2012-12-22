@@ -13,7 +13,7 @@ class ContactsController < ApplicationController
     if params[:search].present?
       @s = params[:search]
       @contacts = @contacts.where("first_name ILIKE ?",@s[:first_name]) if @s[:first_name].present?
-      @contacts = @contacts.where("first_name ILIKE ?",@s[:first_name]) if @s[:last_name].present?
+      @contacts = @contacts.where("last_name ILIKE ?",@s[:last_name]) if @s[:last_name].present?
       @contacts = @contacts.where("region_id = ?",@s[:region]) if @s[:region].present?
       @contacts = @contacts.where("center_id = ?",@s[:center]) if @s[:center].present?
       @contacts = @contacts.where("state = ?",@s[:state]) if @s[:state].present?
