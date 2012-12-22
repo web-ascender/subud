@@ -16,7 +16,7 @@
     =f.input :address
     =f.input :suite
     =f.input :city
-    =f.input :state, :collection => us_states
+    =f.input :state, :collection => Contact.us_states
     =f.input :zip
     
   =f.inputs "About" do
@@ -50,7 +50,8 @@
     =f.input :committee_level
     =f.input :delegate, :label => "Delegate"
 
-  =f.inputs "Display Options" do        
+  =f.inputs "Display Options" do            
     =f.input :show_me_in_web_directory, :label => "Show my information in the online directory (name, address, phone, email, affiliate links)"
     =f.input :show_me_in_print_directory, :label => "Show my information in the annual print directory (name, address, phone, email, affiliate links)"
+  =f.submit
     

@@ -9,7 +9,7 @@ Subud::Application.routes.draw do
 
   resources :access
   resources :contacts
-  
+  resources :home
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -66,6 +66,8 @@ Subud::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
+  root :to => "home#index"
 end
 #== Route Map
 # Generated on 20 Dec 2012 14:54

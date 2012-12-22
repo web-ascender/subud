@@ -1,3 +1,6 @@
+The budget for this project was < 2 days including data import.
+This code is not elegant or fancy, it's all utility and uses Active Admin for administration.
+
 == Subud Membership Database
 
 This membership database is built on Ruby 1.9.2 and Rails 3.2.8

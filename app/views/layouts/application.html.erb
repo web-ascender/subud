@@ -34,6 +34,9 @@
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'images/favicon.ico', :rel => 'shortcut icon' %>
     <%= stylesheet_link_tag "/assets/active_admin.css?body=1", :media => "screen" %>
+    <style type="text/css">
+        li.input{list-style-type: none  !important;}
+    </style>
   </head>
   <body class="new admin_contacts active_admin logged_in admin_namespace">
 
@@ -42,6 +45,23 @@
     <div class="container">
         <div class="row">
           <div class="span12">
+            <div class="flashes">
+            <% if notice.present? %>                
+                <br/>
+                <div class="flash flash_notice"><%= notice %></div>
+            <% end %>
+            <% if alert.present? %>
+                <%= alert %>
+            <% end %>
+            <% if flash[:error] %>
+                <%= flash[:error] %>
+            <% end %>
+
+
+            </div>
+      
+
+
              <%= yield %>
           </div>
         </div><!--/row-->
@@ -53,7 +73,11 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
+    <% if current_user %>
+        <br/><br/><br/>        
+        <%= current_user.email %>
+        <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
 
-    <%= link_to "Logout", destroy_user_session_path, :method => :delete if current_user %>
+    <% end %>
   </body>
 </html>

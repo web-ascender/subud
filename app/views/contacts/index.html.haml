@@ -7,8 +7,35 @@
         
 #title_bar
   .action_items
-    %span.action_item
-      = link_to " Add Your Membership Listing", new_contact_path
+    %span.action_item      
+      - if current_user.contacts.present?
+        = link_to " Edit Membership Listing", [:edit, current_user.contacts.first]
+      - else
+        = link_to " Add Your Membership Listing", new_contact_path 
+
+.search
+
+#filters_sidebar_section.sidebar_section 
+  = semantic_form_for :search, :url => contacts_path , :method => :get do |f|
+    .panel
+      %h3 Search
+      %table
+        %tr
+          %td
+            = f.input :first_name, :required => false
+          %td
+            = f.input :state, :required => false,:collection => Contact.us_states
+          %td
+            = f.input :region, :required => false, :collection => Region.all
+        %tr
+          %td
+            = f.input :last_name, :required => false, :style => "width:50px"                       
+          %td
+            = f.input :center, :required => false,:collection => Center.all
+          %td            
+            = f.submit "Search", :style => "margin-top:10px"
+            = link_to "Clear", :contacts
+
 %table.index_table.index
   %thead
     %tr
@@ -28,7 +55,7 @@
     - @contacts.each do |contact|
       %tr
         %td
-          = link_to "Edit","#" if current_user && current_user.can_edit_contact(contact)
+          = link_to "Edit",[:edit, contact] if current_user && current_user.can_edit_contact(contact)
           
         %td
           = link_to  contact.name, contact if contact.name
