@@ -9,6 +9,7 @@ class ContactsController < ApplicationController
   
   def index
 
+    @existing_contact = Contact.find_by_email(current_user.email)
     @contacts = Contact.where(:show_me_in_web_directory => true).order("last_name,first_name")
     if params[:search].present?
       @s = params[:search]

@@ -8,8 +8,11 @@
 #title_bar
   .action_items
     %span.action_item      
+
       - if current_user.contacts.present?
         = link_to " Edit Membership Listing", [:edit, current_user.contacts.first]
+      - elsif !@existing_contact.nil?
+        = link_to " Edit Membership Listing", [:edit, @existing_contact]
       - else
         = link_to " Add Your Membership Listing", new_contact_path 
 
@@ -79,7 +82,7 @@
           - if contact.website_url && contact.website_url.length > 0
             = contact.website_url
             %br
-          
+
         %td
           = contact.region
         %td
