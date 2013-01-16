@@ -41,6 +41,8 @@ ActiveAdmin.register Contact, {:sort_order => "last_name"} do
         f.input :date_of_info
         f.input :help_statustype, :label => "Help Type"
         f.input :help_level, :label => "Help Level"
+        f.input :region_associations, :as => :check_boxes
+
       end
       f.inputs "Preferences" do                
         #f.input :i_am_the_contact_person_for_information_in_this_region
