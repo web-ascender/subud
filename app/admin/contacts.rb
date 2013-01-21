@@ -24,7 +24,7 @@ ActiveAdmin.register Contact, {:sort_order => "last_name"} do
         f.input :birth_date, :label => "Date of Birth"
         f.input :sex, :label => "Gender", :as => "radio"
         f.input :race_ethnicities, :as => :check_boxes        
-        f.input :martial_status
+        f.input :martial_status, :as => "radio"        
         #f.input :help_status
         f.input :opening_date
 
@@ -35,12 +35,12 @@ ActiveAdmin.register Contact, {:sort_order => "last_name"} do
 
       end
       f.inputs "Center Information" do
-        f.input :region
+        f.input :region, :as => "radio"        
         f.input :center
         f.input :no_center, :label => "I do not belong to a center"        
         f.input :date_of_info
-        f.input :help_statustype, :label => "Help Type"
-        f.input :help_level, :label => "Help Level"
+        f.input :help_statustype, :label => "Helper Type", :as => "radio"        
+        f.input :help_level, :label => "Helper Level"
         f.input :region_associations, :as => :check_boxes
 
       end
@@ -55,8 +55,8 @@ ActiveAdmin.register Contact, {:sort_order => "last_name"} do
         f.input :sica_professional_classification, :label => "SICA Professional Classification"
         f.input :discover_infos, :as => :check_boxes
         f.input :communication_services, :as => :check_boxes
-        f.input :committee_role
-        f.input :committee_level
+        f.input :committee_role, :as => "radio"        
+        f.input :committee_level, :as => "radio"        
         f.input :delegate, :label => "Delegate"
 
       end
@@ -67,8 +67,8 @@ ActiveAdmin.register Contact, {:sort_order => "last_name"} do
       end  
 
       f.inputs "Administration" do
-        f.input :member_status
-        f.input :national_helper
+        f.input :member_status, :as => "radio"        
+        f.input :national_helper, :as => "radio"        
         
       end
 

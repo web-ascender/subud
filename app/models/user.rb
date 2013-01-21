@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   has_many :contacts
 
   def can_edit_contact(contact)
-    contact.user_id == self.id || contact.email == self .email
+    contact.user_id == self.id || contact.email.downcase == self.email.downcase
   end
 end
